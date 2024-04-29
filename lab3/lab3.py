@@ -627,7 +627,6 @@ NUM_WORKERS = 2
 LOG_INTERVAL = 20
 HISTORY = set_history(classification_scenario=True)
 
-#@title Dataset { display-mode: "form" }
 DATASET = "cats-vs-dogs" #@param ["cats-vs-dogs", "CIFAR10", "CIFAR100"]
 if DATASET == "cats-vs-dogs":
     NUM_CLASSES = 2
@@ -638,7 +637,6 @@ elif DATASET == "CIFAR100":
 else:
     raise NotImplementedError
 
-#@title Pretrained ImageNet architecture
 imagenet_backbone = "AlexNet" #@param ["AlexNet", "ResNet18", "ResNet50", "ResNet101", "ResNeXt", "Inceptionv3", "ShuffleNetv2", "DenseNet", "EfficientNet_b0"]
 torch_names = {
     'AlexNet': 'alexnet',
@@ -766,11 +764,7 @@ LOG_INTERVAL = 100
 PLOT_EXAMPLES = 20
 HISTORY = set_history()
 
-"""#### **Dataset**"""
-
 train_loader, test_loader = load_fashion_mnist()
-
-"""#### **Trening modelu**"""
 
 model = VAE().to(DEVICE)
 optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
@@ -811,7 +805,6 @@ plt.legend(['train', 'valid'])
 plt.grid(True)
 plt.show()
 
-"""#### **Ewaluacja**"""
 
 # Plot random samples from the latent space
 GENERATE_SAMPLES = 20
